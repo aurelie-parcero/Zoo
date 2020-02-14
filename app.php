@@ -2,10 +2,6 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-$nemo = new \App\Animals\Fish\CatFish('Nemo');
-
-//echo $nemo->noise();
-
 
 $animals = [
     [
@@ -45,19 +41,22 @@ $animals = [
 
 foreach($animals as $class) {
 
-    for ($x = 0; $x < $class['nbr']; $x++):
+    for ($x = 0; $x < $class['nbr']; $x++) {
         $temp = new $class['type'](get_name($class['type']) . ' ' . ($x + 1));
-        echo $temp->noise() . '<br />';
-    endfor;
+        \App\Zoo::addAnimal($temp);
 
-//    echo 'Je suis un ' . $value->name() . ' et je fais ' . $value->noise();
+    }
 }
 
 function get_name($class) {
     return (substr($class, strrpos($class, '\\') + 1));
 }
 
-$animals2 = [
+$zoo = new \App\Zoo();
+$zoo->visitTheZoo();
+
+//Une autre façon de créer le tableau d'animaux:
+/*$animals2 = [
     new \App\Animals\Fish('Nemo'),
     new \App\Animals\Fish('Dori'),
     new \App\Animals\Fish('Seal'),
@@ -83,11 +82,20 @@ $animals2 = [
     new \App\Animals\Parrot('Hyejin'),
     new \App\Animals\Parrot('Mimi'),
     new \App\Animals\Dove('Damien'),
-    new \App\Animals\Dove('Damien')
+    new \App\Animals\Dove('Michou')
 ];
 
 foreach ($animals2 as $value) {
 
    echo $value->noise().'</br>';
-}
-//var_dump($animals2);
+}*/
+
+
+
+//foreach($animals as $key => $value){
+//
+//    for($i = 0; $i < $key['nbr']; $i++) {
+//        $object = new $key($key . ($i + 1));
+//        \App\Zoo::addAnimal($object);
+//    }
+//}

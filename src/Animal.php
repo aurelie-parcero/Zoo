@@ -21,6 +21,6 @@ abstract class Animal
     protected abstract function getNoise();
 
     public function noise() {
-        return 'Je suis ' . $this->name() . ': ' . $this->getNoise();
+        return 'Je suis ' . $this->name() . ': ' . $this->getNoise() . '<br />';
     }
 }
