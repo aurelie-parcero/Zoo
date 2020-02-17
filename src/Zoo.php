@@ -55,16 +55,15 @@ class Zoo
         if($classAnimal instanceof CanFly)
         {
             self::aviary()->addAnimal($classAnimal);
-        }
-
-        if($classAnimal instanceof CanSwim) {
-
-            self::aquarium()->addAnimal($classAnimal);
+            return ;
         }
 
         if($classAnimal instanceof CanWalk) {
             self::fence()->addAnimal($classAnimal);
+            return ;
         }
+            self::aquarium()->addAnimal($classAnimal);
+
     }
 
     public static function visitTheZoo() {

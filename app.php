@@ -55,6 +55,7 @@ function get_name($class) {
 $zoo = new \App\Zoo();
 $zoo->visitTheZoo();
 
+
 //Une autre façon de créer le tableau d'animaux:
 /*$animals2 = [
     new \App\Animals\Fish('Nemo'),

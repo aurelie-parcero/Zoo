@@ -15,7 +15,7 @@ class Enclosure
 
     public function __toString() : String {
 
-        $allSounds = null;
+        $allSounds = "";
 
         foreach($this->animals as $animal) {
             $allSounds .= $animal->noise();
